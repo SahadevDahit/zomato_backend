@@ -1,0 +1,1163 @@
+{
+	"info": {
+		"_postman_id": "8235b143-e669-45b1-832a-eda6af22dde2",
+		"name": "Zomato",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31332073"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "sahadev",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "dahit",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hunk@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "hunk",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/dell/Pictures/edv/edv.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hunk@gmail.com\",\r\n    \"password\":\"hunk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGIwZTEyODUyMGViMzE1OWJiN2U0ZSIsImlhdCI6MTcwMzYxMTk1NywiZXhwIjoxNzAzNjk4MzU3fQ.iTwsSJCnj4qIUrIXGvT1xOxCFooMn1FQGlfueMUl_mk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\":\"Sahadev\",\r\n  \"middelName\":\"\",\r\n  \"lastName\":\"Dahit\",\r\n  \"address\":{\r\n    \"city\":\"dhangadhi\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/users/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OGIwZTEyODUyMGViMzE1OWJiN2U0ZSIsImlhdCI6MTcwMzYxMTk1NywiZXhwIjoxNzAzNjk4MzU3fQ.iTwsSJCnj4qIUrIXGvT1xOxCFooMn1FQGlfueMUl_mk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/users/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shippingAddress",
+			"item": [
+				{
+					"name": "createShippingAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\":\"Godawari\",\r\n  \"city\":\"dharan\",\r\n  \"postalcode\":\"10887\",\r\n \"provience\":\"purwanchal\",\r\n \"country\":\"Nepal\",\r\n \"phone\":\"9804433\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/shippingAddress",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"shippingAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getShippingAddress",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/shippingAddress",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"shippingAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateShippingAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\":\"Godawari\",\r\n  \"city\":\"ktm\",\r\n  \"postalcode\":\"10889\",\r\n \"provience\":\"sudurpaschim\",\r\n \"country\":\"Nepal\",\r\n \"phone\":\"9888112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/shippingAddress/658b109e8520eb3159bb7e53",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"shippingAddress",
+								"658b109e8520eb3159bb7e53"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteShippingAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/shippingAddress/658b11ff8520eb3159bb7e61",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"shippingAddress",
+								"658b11ff8520eb3159bb7e61"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "createCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test-veg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/category",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/category",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"veg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/category/658b25653bd561894f141cda",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"category",
+								"658b25653bd561894f141cda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/category/658b25e13bd561894f141ce3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"category",
+								"658b25e13bd561894f141ce3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cusine",
+			"item": [
+				{
+					"name": "createCusine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Nepal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/cusine",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"cusine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCusine",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/cusine",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"cusine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCusine",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"China\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/cusine/658b28b628b6c4b32f3ed553",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"cusine",
+								"658b28b628b6c4b32f3ed553"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCusine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/cusine/658b28b628b6c4b32f3ed553",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"cusine",
+								"658b28b628b6c4b32f3ed553"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "restaurant",
+			"item": [
+				{
+					"name": "createRestaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test Restaurant\",\r\n    \"location\":\"https:mymap1.com\",\r\n    \"city\":\"ktm\",\r\n    \"street\":\"street 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurant",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRestaurant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurant",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRestaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test1 Restaurant\",\r\n    \"location\":\"https:mymap1.com\",\r\n    \"city\":\"ktm\",\r\n    \"street\":\"street 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurant/658b2ba9092cd9c27196c7b0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurant",
+								"658b2ba9092cd9c27196c7b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRestaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurant/658b2ba9092cd9c27196c7b0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurant",
+								"658b2ba9092cd9c27196c7b0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "createItems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Non Veg Momo",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is the best non veg momos",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "658b25653bd561894f141cda",
+									"type": "text"
+								},
+								{
+									"key": "sizes",
+									"value": "L",
+									"type": "text"
+								},
+								{
+									"key": "colors",
+									"value": "red",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "totalQty",
+									"value": "230",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/dell/Pictures/sd.png"
+								},
+								{
+									"key": "cusine_id",
+									"value": "658b289b28b6c4b32f3ed54a",
+									"type": "text"
+								},
+								{
+									"key": "restaurant_id",
+									"value": "658b2b85092cd9c27196c7a7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/items",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/items",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateItems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\":\"test\",\r\n        \"description\":\"This is test one\",\r\n        \"sizes\":\"L\",\r\n        \"colors\":\"green\",\r\n        \"price\":350,\r\n        \"totalQty\":230\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/items//658b9b82a08512fb17ab4563",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"items",
+								"",
+								"658b9b82a08512fb17ab4563"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteItems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/items/658b9b82a08512fb17ab4563",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"items",
+								"658b9b82a08512fb17ab4563"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "getReviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/reviews/658ba45412c14f82f5e67e2a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"reviews",
+								"658ba45412c14f82f5e67e2a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createReviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"message\":\"awsome\",\r\n  \"rating\":5,\r\n  \"items_id\":\"658b3c79ed138d03a668c199\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateReviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"message\":\"awsome\",\r\n  \"rating\":5,\r\n  \"items_id\":\"658b3c79ed138d03a668c199\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/reviews/658ba45412c14f82f5e67e2a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"reviews",
+								"658ba45412c14f82f5e67e2a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/reviews/658ba45412c14f82f5e67e2a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"reviews",
+								"658ba45412c14f82f5e67e2a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "createOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemId\":\"658b3c79ed138d03a668c199\",\r\n    \"quantityOrdered\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"quantityOrdered\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/orders/658ba7dee238fa53c301b3c6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"658ba7dee238fa53c301b3c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrders",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/orders/ 658ba7dee238fa53c301b3c6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								" 658ba7dee238fa53c301b3c6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "restaurantReview",
+			"item": [
+				{
+					"name": "createRestaurantReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"message\":\"best one\",\r\n  \"rating\":3,\r\n  \"restaurant_id\":\"658b2b85092cd9c27196c7a7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurantReviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurantReviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRestaurantReview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurantReviews/658bb0d448cc6d85b99ae72c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurantReviews",
+								"658bb0d448cc6d85b99ae72c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRestaurantReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"message\":\"best one\",\r\n  \"rating\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurantReviews/658bb0d448cc6d85b99ae72c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurantReviews",
+								"658bb0d448cc6d85b99ae72c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRestaurantReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/restaurantReviews/658bb0d448cc6d85b99ae72c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"restaurantReviews",
+								"658bb0d448cc6d85b99ae72c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
